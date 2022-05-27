@@ -52,6 +52,13 @@ export default class ArAdjustmentLineCreate extends AbstractArAdjustmentLine {
         xml.writeElement("contractid", this.contractId);
         xml.writeElement("warehouseid", this.warehouseId);
 
+        if (this.taxEntries != null && this.taxEntries.length > 0) {
+            xml.writeStartElement("taxentries");
+            for (const entry of this.taxEntries) {
+                entry.writeXml(xml);
+            }
+            xml.writeEndElement(); // taxentry
+        }
         xml.writeEndElement(); // lineitem
     }
 }

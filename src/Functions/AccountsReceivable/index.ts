@@ -1,5 +1,6 @@
 export { default as AbstractArAdjustment } from "./AbstractArAdjustment";
 export { default as AbstractArAdjustmentLine } from "./AbstractArAdjustmentLine";
+export { default as AbstractArTaxEntry } from "./AbstractArTaxEntry";
 export { default as AbstractArAdjustmentSummary } from "./AbstractArAdjustmentSummary";
 export { default as AbstractArPayment } from "./AbstractArPayment";
 export { default as AbstractArPaymentSummary } from "./AbstractArPaymentSummary";
@@ -10,6 +11,7 @@ export { default as AbstractInvoiceSummary } from "./AbstractInvoiceSummary";
 export { default as ArAdjustmentCreate } from "./ArAdjustmentCreate";
 export { default as ArAdjustmentDelete } from "./ArAdjustmentDelete";
 export { default as ArAdjustmentLineCreate } from "./ArAdjustmentLineCreate";
+export { default as ArTaxEntry } from "./ArTaxEntryCreate";
 export { default as ArAdjustmentSummaryCreate } from "./ArAdjustmentSummaryCreate";
 export { default as ArPaymentApply } from "./ArPaymentApply";
 export { default as ArPaymentCreate } from "./ArPaymentCreate";

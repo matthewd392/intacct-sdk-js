@@ -19,6 +19,7 @@
 
 import IaXmlWriter from "../../Xml/IaXmlWriter";
 import IXmlObject from "../../Xml/IXmlObject";
+import AbstractArTaxEntry from "./AbstractArTaxEntry";
 
 export default abstract class AbstractArAdjustmentLine implements IXmlObject {
 
@@ -41,6 +42,7 @@ export default abstract class AbstractArAdjustmentLine implements IXmlObject {
     public classId: string;
     public contractId: string;
     public warehouseId: string;
+    public taxEntries: AbstractArTaxEntry[];
 
     public customFields: Array<[string, any]> = [];
 

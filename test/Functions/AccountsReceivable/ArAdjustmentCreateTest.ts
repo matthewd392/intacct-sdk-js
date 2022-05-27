@@ -15,6 +15,7 @@
 
 import ArAdjustmentCreate from "../../../src/Functions/AccountsReceivable/ArAdjustmentCreate";
 import ArAdjustmentLineCreate from "../../../src/Functions/AccountsReceivable/ArAdjustmentLineCreate";
+import ArTaxEntryCreate from "../../../src/Functions/AccountsReceivable/ArTaxEntryCreate";
 import XmlObjectTestHelper from "../../Xml/XmlObjectTestHelper";
 
 describe("ArAdjustmentCreate", () => {
@@ -45,6 +46,11 @@ describe("ArAdjustmentCreate", () => {
                 <lineitem>
                     <glaccountno />
                     <amount>76343.43</amount>
+                    <taxentries>
+                        <taxentry>
+                            <detailid>UK Sale Services Reduced Rate</detailid>
+                        </taxentry>
+                    </taxentries>
                 </lineitem>
             </aradjustmentitems>
         </create_aradjustment>
@@ -58,7 +64,11 @@ describe("ArAdjustmentCreate", () => {
 
         const line1 = new ArAdjustmentLineCreate();
         line1.transactionAmount = 76343.43;
-
+        const taxEntry = new ArTaxEntryCreate();
+        taxEntry.detailid = "UK Sale Services Reduced Rate";
+        line1.taxEntries = [
+            taxEntry,
+        ];
         record.lines = [
             line1,
         ];
@@ -106,6 +116,11 @@ describe("ArAdjustmentCreate", () => {
                 <lineitem>
                     <glaccountno />
                     <amount>76343.43</amount>
+                    <taxentries>
+                        <taxentry>
+                            <detailid>UK Sale Services Reduced Rate</detailid>
+                        </taxentry>
+                    </taxentries>
                 </lineitem>
             </aradjustmentitems>
         </create_aradjustment>
@@ -134,7 +149,11 @@ describe("ArAdjustmentCreate", () => {
 
         const line1 = new ArAdjustmentLineCreate();
         line1.transactionAmount = 76343.43;
-
+        const taxEntry = new ArTaxEntryCreate();
+        taxEntry.detailid = "UK Sale Services Reduced Rate";
+        line1.taxEntries = [
+            taxEntry,
+        ];
         record.lines = [
             line1,
         ];
