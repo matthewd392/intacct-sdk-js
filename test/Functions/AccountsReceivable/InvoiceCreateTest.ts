@@ -16,6 +16,7 @@
 import InvoiceCreate from "../../../src/Functions/AccountsReceivable/InvoiceCreate";
 import InvoiceLineCreate from "../../../src/Functions/AccountsReceivable/InvoiceLineCreate";
 import XmlObjectTestHelper from "../../Xml/XmlObjectTestHelper";
+import ArTaxEntryCreate from "../../../src/Functions/AccountsReceivable/ArTaxEntryCreate";
 
 describe("InvoiceCreate", () => {
     before((done) => {
@@ -122,6 +123,11 @@ describe("InvoiceCreate", () => {
                 <lineitem>
                     <glaccountno />
                     <amount>76343.43</amount>
+                    <taxentries>
+                        <taxentry>
+                            <detailid>UK Sale Services Reduced Rate</detailid>
+                        </taxentry>
+                    </taxentries>
                 </lineitem>
             </invoiceitems>
         </create_invoice>
@@ -156,7 +162,11 @@ describe("InvoiceCreate", () => {
 
         const line1 = new InvoiceLineCreate();
         line1.transactionAmount = 76343.43;
-
+        const taxEntry = new ArTaxEntryCreate();
+        taxEntry.detailid = "UK Sale Services Reduced Rate";
+        line1.taxEntries = [
+            taxEntry,
+        ];
         record.lines = [
             line1,
         ];

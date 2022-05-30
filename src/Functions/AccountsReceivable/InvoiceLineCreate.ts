@@ -64,7 +64,13 @@ export default class InvoiceLineCreate extends AbstractInvoiceLine {
         xml.writeElement("classid", this.classId);
         xml.writeElement("contractid", this.contractId);
         xml.writeElement("warehouseid", this.warehouseId);
-
+        if (this.taxEntries != null && this.taxEntries.length > 0) {
+            xml.writeStartElement("taxentries");
+            for (const entry of this.taxEntries) {
+                entry.writeXml(xml);
+            }
+            xml.writeEndElement(); // taxentry
+        }
         xml.writeEndElement(); // lineitem
     }
 }
